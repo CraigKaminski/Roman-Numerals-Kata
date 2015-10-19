@@ -1,5 +1,5 @@
 describe('An arabic number', function() {
-  describe('less than ten', function() {
+  describe('less than 10', function() {
     it('returns I when given 1', function() {
       var arabicNumber = 1;
       var romanNumeral = arabicToRoman(arabicNumber);
@@ -52,6 +52,62 @@ describe('An arabic number', function() {
       var arabicNumber = 9;
       var romanNumeral = arabicToRoman(arabicNumber);
       expect(romanNumeral).toBe('IX');
+    });
+  });
+
+  describe('a multiple of 10 less than 100', function() {
+    it('returns X when given 10', function() {
+      var arabicNumber = 10;
+      var romanNumeral = arabicToRoman(arabicNumber);
+      expect(romanNumeral).toBe('X');
+    });
+
+    it('returns XX when given 20', function() {
+      var arabicNumber = 20;
+      var romanNumeral = arabicToRoman(arabicNumber);
+      expect(romanNumeral).toBe('XX');
+    });
+
+    it('returns XXX when given 30', function() {
+      var arabicNumber = 30;
+      var romanNumeral = arabicToRoman(arabicNumber);
+      expect(romanNumeral).toBe('XXX');
+    });
+
+    it('returns XL when given 40', function() {
+      var arabicNumber = 40;
+      var romanNumeral = arabicToRoman(arabicNumber);
+      expect(romanNumeral).toBe('XL');
+    });
+
+    it('returns L when given 50', function() {
+      var arabicNumber = 50;
+      var romanNumeral = arabicToRoman(arabicNumber);
+      expect(romanNumeral).toBe('L');
+    });
+
+    it('returns LX when given 60', function() {
+      var arabicNumber = 60;
+      var romanNumeral = arabicToRoman(arabicNumber);
+      expect(romanNumeral).toBe('LX');
+    });
+
+    it('returns LXX when given 70', function() {
+      var arabicNumber = 70;
+      var romanNumeral = arabicToRoman(arabicNumber);
+      expect(romanNumeral).toBe('LXX');
+    });
+
+    it('returns LXXX when given 80', function() {
+      var arabicNumber = 80;
+      var romanNumeral = arabicToRoman(arabicNumber);
+      expect(romanNumeral).toBe('LXXX');
+    });
+
+    it('returns XC when given 90', function() {
+      var arabicNumber = 90;
+      var romanNumeral = arabicToRoman(arabicNumber);
+      expect(romanNumeral).toBe('XC');
     });
   });
 });
