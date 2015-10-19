@@ -5,5 +5,11 @@ describe('An arabic number', function() {
       var romanNumeral = arabicToRoman(arabicNumber);
       expect(romanNumeral).toBe('I');
     });
+
+    it('returns II when given 2', function() {
+      var arabicNumber = 2;
+      var romanNumeral = arabicToRoman(arabicNumber);
+      expect(romanNumeral).toBe('II');
+    });
   });
 });

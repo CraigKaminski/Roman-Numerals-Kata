@@ -1,3 +1,7 @@
 function arabicToRoman(arabicNumber) {
-  return "I";
+  arabicToRomanMap = {
+    1: 'I',
+    2: 'II',
+  };
+  return arabicToRomanMap[arabicNumber];
 }
