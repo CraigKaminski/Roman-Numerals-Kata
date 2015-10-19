@@ -1,5 +1,5 @@
 function arabicToRoman(arabicNumber) {
-  arabicToRomanMap = {
+  var arabicToRomanMap = {
     1: 'I',
     2: 'II',
     3: 'III',
@@ -17,7 +17,26 @@ function arabicToRoman(arabicNumber) {
     60: 'LX',
     70: 'LXX',
     80: 'LXXX',
-    90: 'XC'
+    90: 'XC',
+    100: 'C',
+    200: 'CC',
+    300: 'CCC',
+    400: 'CD',
+    500: 'D',
+    600: 'DC',
+    700: 'DCC',
+    800: 'DCCC',
+    900: 'CM',
+    1000: 'M',
+    2000: 'MM',
+    3000: 'MMM'
   };
-  return arabicToRomanMap[arabicNumber];
+
+  if (arabicNumber < 10 || arabicNumber % 10 === 0) {
+    return arabicToRomanMap[arabicNumber];
+  } else {
+    var romanNumeral = arabicToRomanMap[Math.floor(arabicNumber / 10) * 10];
+    romanNumeral += arabicToRomanMap[arabicNumber % 10];
+    return romanNumeral;
+  }
 }

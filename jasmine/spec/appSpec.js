@@ -1,5 +1,5 @@
 describe('An arabic number', function() {
-  describe('less than 10', function() {
+  describe('which is less than 10', function() {
     it('returns I when given 1', function() {
       var arabicNumber = 1;
       var romanNumeral = arabicToRoman(arabicNumber);
@@ -55,7 +55,7 @@ describe('An arabic number', function() {
     });
   });
 
-  describe('a multiple of 10 less than 100', function() {
+  describe('which is a multiple of 10 less than 100', function() {
     it('returns X when given 10', function() {
       var arabicNumber = 10;
       var romanNumeral = arabicToRoman(arabicNumber);
@@ -108,6 +108,90 @@ describe('An arabic number', function() {
       var arabicNumber = 90;
       var romanNumeral = arabicToRoman(arabicNumber);
       expect(romanNumeral).toBe('XC');
+    });
+  });
+
+  describe('which is a multiple of 100 less than 1000', function() {
+    it('returns C when given 100', function() {
+      var arabicNumber = 100;
+      var romanNumeral = arabicToRoman(arabicNumber);
+      expect(romanNumeral).toBe('C');
+    });
+
+    it('returns CC when given 200', function() {
+      var arabicNumber = 200;
+      var romanNumeral = arabicToRoman(arabicNumber);
+      expect(romanNumeral).toBe('CC');
+    });
+
+    it('returns CCC when given 300', function() {
+      var arabicNumber = 300;
+      var romanNumeral = arabicToRoman(arabicNumber);
+      expect(romanNumeral).toBe('CCC');
+    });
+
+    it('returns CD when given 400', function() {
+      var arabicNumber = 400;
+      var romanNumeral = arabicToRoman(arabicNumber);
+      expect(romanNumeral).toBe('CD');
+    });
+
+    it('returns D when given 500', function() {
+      var arabicNumber = 500;
+      var romanNumeral = arabicToRoman(arabicNumber);
+      expect(romanNumeral).toBe('D');
+    });
+
+    it('returns DC when given 600', function() {
+      var arabicNumber = 600;
+      var romanNumeral = arabicToRoman(arabicNumber);
+      expect(romanNumeral).toBe('DC');
+    });
+
+    it('returns DCC when given 700', function() {
+      var arabicNumber = 700;
+      var romanNumeral = arabicToRoman(arabicNumber);
+      expect(romanNumeral).toBe('DCC');
+    });
+
+    it('returns DCCC when given 800', function() {
+      var arabicNumber = 800;
+      var romanNumeral = arabicToRoman(arabicNumber);
+      expect(romanNumeral).toBe('DCCC');
+    });
+
+    it('returns CM when given 900', function() {
+      var arabicNumber = 900;
+      var romanNumeral = arabicToRoman(arabicNumber);
+      expect(romanNumeral).toBe('CM');
+    });
+  });
+
+  describe('which is a multiple of 1000 less than 4000', function() {
+    it('returns M when given 1000', function() {
+      var arabicNumber = 1000;
+      var romanNumeral = arabicToRoman(arabicNumber);
+      expect(romanNumeral).toBe('M');
+    });
+
+    it('returns MM when given 2000', function() {
+      var arabicNumber = 2000;
+      var romanNumeral = arabicToRoman(arabicNumber);
+      expect(romanNumeral).toBe('MM');
+    });
+
+    it('returns MMM when given 3000', function() {
+      var arabicNumber = 3000;
+      var romanNumeral = arabicToRoman(arabicNumber);
+      expect(romanNumeral).toBe('MMM');
+    });
+  });
+
+  describe('which is not a multiple of 10 between 10 and 100', function() {
+    it('returns XXXVI when given 36', function() {
+      var arabicNumber = 36;
+      var romanNumeral = arabicToRoman(arabicNumber);
+      expect(romanNumeral).toBe('XXXVI');
     });
   });
 });
