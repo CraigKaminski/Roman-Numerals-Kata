@@ -235,3 +235,20 @@ describe('An arabic number', function() {
     });
   });
 });
+
+describe('The roman numeral to arabic number converter', function() {
+  describe('when given roman numerals between 0 and 10', function() {
+    var romanNumeralsOneToNine = [ 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX' ];
+    for (var i = 0; i < romanNumeralsOneToNine.length; i++) {
+      var romanNumeral = romanNumeralsOneToNine[i];
+      var arabicNumber = i + 1;
+      it('returns ' + arabicNumber + ' when given '+ romanNumeral,
+        function(romanNumeral, arabicNumber) {
+          return function() {
+            expect(romanNumeral).toBe(arabicNumber);
+          };
+        }(romanToArabic(romanNumeralsOneToNine[i]), i + 1)
+      );
+    }
+  });
+});
