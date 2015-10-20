@@ -33,7 +33,7 @@ var arabicToRomanMap = {
 
 function arabicToRoman(arabicNumber) {
   if (arabicNumber >= 4000) {
-    throw new TypeError('Exceeded Max Value');
+    throw new RangeError('Exceeded Max Value');
   } else if (arabicNumber in arabicToRomanMap) {
     return arabicToRomanMap[arabicNumber];
   } else {
@@ -84,8 +84,7 @@ function romanToArabic(romanNumeral) {
     var sliceEnd = 1;
 
     if (! (romanNumeral[0] in romanToArabicMap)) {
-      console.log('error thrown');
-      throw new TypeError('Invalid Roman Numeral');
+      throw new RangeError('Invalid Roman Numeral');
     }
 
     while (romanNumeral.slice(0, sliceEnd) in romanToArabicMap) {
@@ -96,3 +95,24 @@ function romanToArabic(romanNumeral) {
     return romanToArabicMap[subRomanNumeralFound] + romanToArabic(romanNumeralRemaining);
   }
 }
+
+var arabicInput = document.getElementById('arabicNumber');
+var romanInput = document.getElementById('romanNumeral');
+var arabicToRomanBtn = document.getElementById('arabicToRoman');
+var romanToArabicBtn = document.getElementById('romanToArabic');
+
+arabicToRomanBtn.onclick = function() {
+  try {
+    romanInput.value = arabicToRoman(parseInt(arabicInput.value));
+  } catch (e) {
+    alert(e);
+  }
+};
+
+romanToArabicBtn.onclick = function() {
+  try {
+    arabicInput.value = romanToArabic(romanInput.value);
+  } catch (e) {
+    alert(e);
+  }
+};
