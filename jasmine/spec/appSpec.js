@@ -306,4 +306,10 @@ describe('The roman numeral to arabic number converter', function() {
       expect(romanToArabic('CDXC')).toBe(490);
     });
   });
+
+  describe('when given an invalid roman numeral', function() {
+    it('throws an "Invalid Roman Numeral" error', function() {
+      expect(function() {romanToArabic('Q')}).toThrowError('Invalid Roman Numeral');
+    });
+  });
 });

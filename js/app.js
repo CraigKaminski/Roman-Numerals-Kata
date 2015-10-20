@@ -82,6 +82,12 @@ function romanToArabic(romanNumeral) {
   } else {
     var subRomanNumeralFound;
     var sliceEnd = 1;
+
+    if (! (romanNumeral[0] in romanToArabicMap)) {
+      console.log('error thrown');
+      throw new TypeError('Invalid Roman Numeral');
+    }
+
     while (romanNumeral.slice(0, sliceEnd) in romanToArabicMap) {
       subRomanNumeralFound = romanNumeral.slice(0, sliceEnd);
       sliceEnd++;
