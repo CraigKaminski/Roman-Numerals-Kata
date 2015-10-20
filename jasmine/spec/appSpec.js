@@ -251,4 +251,19 @@ describe('The roman numeral to arabic number converter', function() {
       );
     }
   });
+
+  describe('when given roman numerals less than 100 that are multiples of 10', function() {
+    var romanNumeralsOneToNine = [ 'X', 'XX', 'XXX', 'XL', 'L', 'LX', 'LXX', 'LXXX', 'XC' ];
+    for (var i = 0; i < romanNumeralsOneToNine.length; i++) {
+      var romanNumeral = romanNumeralsOneToNine[i];
+      var arabicNumber = (i + 1) * 10;
+      it('returns ' + arabicNumber + ' when given '+ romanNumeral,
+        function(romanNumeral, arabicNumber) {
+          return function() {
+            expect(romanNumeral).toBe(arabicNumber);
+          };
+        }(romanToArabic(romanNumeral), arabicNumber)
+      );
+    }
+  });
 });
