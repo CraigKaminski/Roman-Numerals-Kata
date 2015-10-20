@@ -208,4 +208,24 @@ describe('An arabic number', function() {
       expect(romanNumeral).toBe('CCXXX');
     });
   });
+
+  describe('which is not a multiple of 1000 between 1000 and 4000', function() {
+    it('returns MMDCCLIV when given 2754', function() {
+      var arabicNumber = 2754;
+      var romanNumeral = arabicToRoman(arabicNumber);
+      expect(romanNumeral).toBe('MMDCCLIV');
+    });
+
+    it('returns MCCXXX when given 1230', function() {
+      var arabicNumber = 1230;
+      var romanNumeral = arabicToRoman(arabicNumber);
+      expect(romanNumeral).toBe('MCCXXX');
+    });
+
+    it('returns MMMCM when given 3900', function() {
+      var arabicNumber = 3900;
+      var romanNumeral = arabicToRoman(arabicNumber);
+      expect(romanNumeral).toBe('MMMCM');
+    });
+  });
 });
