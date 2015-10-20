@@ -247,7 +247,7 @@ describe('The roman numeral to arabic number converter', function() {
           return function() {
             expect(romanNumeral).toBe(arabicNumber);
           };
-        }(romanToArabic(romanNumeralsOneToNine[i]), i + 1)
+        }(romanToArabic(romanNumeral), arabicNumber)
       );
     }
   });
@@ -257,6 +257,36 @@ describe('The roman numeral to arabic number converter', function() {
     for (var i = 0; i < romanNumeralsOneToNine.length; i++) {
       var romanNumeral = romanNumeralsOneToNine[i];
       var arabicNumber = (i + 1) * 10;
+      it('returns ' + arabicNumber + ' when given '+ romanNumeral,
+        function(romanNumeral, arabicNumber) {
+          return function() {
+            expect(romanNumeral).toBe(arabicNumber);
+          };
+        }(romanToArabic(romanNumeral), arabicNumber)
+      );
+    }
+  });
+
+  describe('when given roman numerals less than 1000 that are multiples of 100', function() {
+    var romanNumeralsOneToNine = [ 'C', 'CC', 'CCC', 'CD', 'D', 'DC', 'DCC', 'DCCC', 'CM' ];
+    for (var i = 0; i < romanNumeralsOneToNine.length; i++) {
+      var romanNumeral = romanNumeralsOneToNine[i];
+      var arabicNumber = (i + 1) * 100;
+      it('returns ' + arabicNumber + ' when given '+ romanNumeral,
+        function(romanNumeral, arabicNumber) {
+          return function() {
+            expect(romanNumeral).toBe(arabicNumber);
+          };
+        }(romanToArabic(romanNumeral), arabicNumber)
+      );
+    }
+  });
+
+  describe('when given roman numerals less than 4000 that are multiples of 1000', function() {
+    var romanNumeralsOneToNine = [ 'M', 'MM', 'MMM' ];
+    for (var i = 0; i < romanNumeralsOneToNine.length; i++) {
+      var romanNumeral = romanNumeralsOneToNine[i];
+      var arabicNumber = (i + 1) * 1000;
       it('returns ' + arabicNumber + ' when given '+ romanNumeral,
         function(romanNumeral, arabicNumber) {
           return function() {
