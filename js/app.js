@@ -32,7 +32,7 @@ var arabicToRomanMap = {
 };
 
 function arabicToRoman(arabicNumber) {
-  if (arabicNumber < 10 || arabicNumber % 10 === 0) {
+  if (arabicNumber in arabicToRomanMap) {
     return arabicToRomanMap[arabicNumber];
   } else {
     var arabicString = arabicNumber.toString();

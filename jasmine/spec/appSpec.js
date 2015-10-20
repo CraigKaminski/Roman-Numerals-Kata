@@ -194,4 +194,18 @@ describe('An arabic number', function() {
       expect(romanNumeral).toBe('XXXVI');
     });
   });
+
+  describe('which is not a multiple of 100 between 100 and 1000', function() {
+    it('returns DCCLIV when given 754', function() {
+      var arabicNumber = 754;
+      var romanNumeral = arabicToRoman(arabicNumber);
+      expect(romanNumeral).toBe('DCCLIV');
+    });
+
+    it('returns CCXXX when given 230', function() {
+      var arabicNumber = 230;
+      var romanNumeral = arabicToRoman(arabicNumber);
+      expect(romanNumeral).toBe('CCXXX');
+    });
+  });
 });
