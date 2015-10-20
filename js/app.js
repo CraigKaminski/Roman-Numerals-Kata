@@ -32,7 +32,9 @@ var arabicToRomanMap = {
 };
 
 function arabicToRoman(arabicNumber) {
-  if (arabicNumber in arabicToRomanMap) {
+  if (arabicNumber >= 4000) {
+    throw new TypeError('Exceeded Max Value');
+  } else if (arabicNumber in arabicToRomanMap) {
     return arabicToRomanMap[arabicNumber];
   } else {
     var arabicString = arabicNumber.toString();

@@ -228,4 +228,10 @@ describe('An arabic number', function() {
       expect(romanNumeral).toBe('MMMCM');
     });
   });
+
+  describe('which is greater than or equal to 4000', function() {
+    it('throws an "Exceeded Max Value" error', function() {
+      expect(function() {arabicToRoman(4000)}).toThrowError('Exceeded Max Value');
+    });
+  });
 });
