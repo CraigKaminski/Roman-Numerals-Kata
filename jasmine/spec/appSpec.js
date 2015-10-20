@@ -296,4 +296,14 @@ describe('The roman numeral to arabic number converter', function() {
       );
     }
   });
+
+  describe('when given a roman numeral that is between 10 and 4000 and not a multiple of 10', function() {
+    it('returns 73 when given LXXIII', function() {
+      expect(romanToArabic('LXXIII')).toBe(73);
+    });
+
+    it('returns 490 when given CDXC', function() {
+      expect(romanToArabic('CDXC')).toBe(490);
+    });
+  });
 });

@@ -77,5 +77,16 @@ var romanToArabicMap = {
 };
 
 function romanToArabic(romanNumeral) {
-  return romanToArabicMap[romanNumeral];
+  if (romanNumeral in romanToArabicMap) {
+    return romanToArabicMap[romanNumeral];
+  } else {
+    var subRomanNumeralFound;
+    var sliceEnd = 1;
+    while (romanNumeral.slice(0, sliceEnd) in romanToArabicMap) {
+      subRomanNumeralFound = romanNumeral.slice(0, sliceEnd);
+      sliceEnd++;
+    }
+    var romanNumeralRemaining = romanNumeral.slice(subRomanNumeralFound.length);
+    return romanToArabicMap[subRomanNumeralFound] + romanToArabic(romanNumeralRemaining);
+  }
 }
